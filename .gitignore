@@ -1,2 +1,2 @@
-fe/node_modules
-be/node_modules
+node_modules/
+.idea/
