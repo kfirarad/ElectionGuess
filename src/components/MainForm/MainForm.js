@@ -34,9 +34,9 @@ export default function MainForm(){
   }
 
   const calculateTotal = () => {
-    return 120 - Object.values(mandates).reduce((value, sum) => {
-      return sum + value;
-    }, 0);
+    return Object.values(mandates).reduce((sum, value) => {
+      return sum - value;
+    }, 120);
   }
 
   const onSubmit = (e) => {
