@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { parties } from '../../services/parties';
 import NumberTextField from "./NumberTextField";
@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MainForm(){
   const classes = useStyles();
-  const totalInputRef = useRef();
 
   const [mandates, setMandates] = useState(parties.reduce((partiesMap, party) => {
     partiesMap[party.name] = 0;
@@ -47,7 +46,7 @@ export default function MainForm(){
   return (
       <form onSubmit={(e) => onSubmit(e)}>
         {parties.map(party => <NumberTextField key={party.name} name={party.name} handleChange={handleChange}/>)}
-        <TextField type="number" disabled id="standard-disabled" label="Total left" value={calculateTotal()} ref={totalInputRef}/>
+        <TextField type="number" disabled id="standard-disabled" label="Total left" value={calculateTotal()}/>
         <Button variant="contained" color="primary" type="submit" disabled={calculateTotal() !== 0}>Send</Button>
       </form>
   );
