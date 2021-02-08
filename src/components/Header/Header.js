@@ -31,8 +31,7 @@ export default function Header() {
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" className={classes.title}>
-                        איך ביבי ינצח הפעם?
+                    <Typography id="title" variant="h6" className={classes.title}>
                     </Typography>
                     <Login />
                 </Toolbar>
