@@ -5,6 +5,7 @@ import NumberTextField from "./NumberTextField";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { GoogleAuthContext } from '../../GoogleContext';
+import { db } from '../../firebase/firebase';
 
 const useStyles = makeStyles((theme) => ({
   // root: {
@@ -44,7 +45,12 @@ export default function MainForm(){
     e.preventDefault();
     if (userId) {
       // TODO: send form to firebase
-      console.log(userId, mandates)
+      db.collection('bets').add({
+        userId,
+        mandates: {
+          ...mandates,
+        }
+      });
     } else {
       // TODO: open modal with please sign in and the google button
       // if the user is singing in, its need to know the mandates to send 
