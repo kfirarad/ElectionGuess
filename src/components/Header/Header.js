@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Login } from '../Login/Login';
+import { Logout } from '../Logout/Logout';
+import { GoogleAuthContext } from '../../GoogleContext';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -22,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header() {
     const classes = useStyles();
+    const { userId } = useContext(GoogleAuthContext);
 
     return (
         <div className={classes.root}>
@@ -32,7 +35,8 @@ export default function Header() {
                     </IconButton>
                     <Typography id="title" variant="h6" className={classes.title}>
                     </Typography>
-                    <Login />
+                    {!userId && <Login />}
+                    {userId && <Logout />}
                 </Toolbar>
             </AppBar>
         </div>

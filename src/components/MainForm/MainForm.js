@@ -5,24 +5,22 @@ import NumberTextField from "./NumberTextField";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { GoogleAuthContext } from '../../GoogleContext';
+import { AppContext } from '../../AppContext';
 import { db } from '../../firebase/firebase';
+import AppModal from '../Modal/Modal';
 
 const useStyles = makeStyles((theme) => ({
-  // root: {
-  //   flexGrow: 1,
-  // },
-  // menuButton: {
-  //   marginRight: theme.spacing(2),
-  // },
-  // title: {
-  //   flexGrow: 1,
-  // },
+  modalTitle: {
+    backgroundColor: '#ffffff',
+    padding: '100px',
+  },
 }));
 
 export default function MainForm(){
   const classes = useStyles();
   const { userId } = useContext(GoogleAuthContext);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [mandates, setMandates] = useState(parties.reduce((partiesMap, party) => {
     partiesMap[party.name] = 0;
     return partiesMap;
@@ -55,7 +53,8 @@ export default function MainForm(){
       // TODO: open modal with please sign in and the google button
       // if the user is singing in, its need to know the mandates to send 
       // or: it will go back to this page and it will need to send again
-      console.log('not authenticated')
+      console.log('modal should open')
+      setIsModalOpen(true);
     }
   }
 
@@ -64,6 +63,9 @@ export default function MainForm(){
         {parties.map(party => <NumberTextField key={party.name} name={party.name} handleChange={handleChange}/>)}
         <TextField type="number" disabled id="standard-disabled" label="Total left" value={calculateTotal()}/>
         <Button variant="contained" color="primary" type="submit" disabled={calculateTotal() !== 0}>Send</Button>
+        <AppModal open={isModalOpen} hanldeClose={() => setIsModalOpen(false)}>
+          <h1 className={classes.modalTitle}>Please login before sending your bet</h1>
+        </AppModal>
       </form>
   );
 }
