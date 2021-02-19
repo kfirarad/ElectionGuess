@@ -42,7 +42,6 @@ export default function MainForm(){
   const onSubmit = (e) => {
     e.preventDefault();
     if (userId) {
-      // TODO: send form to firebase
       db.collection('bets').add({
         userId,
         mandates: {
@@ -50,10 +49,6 @@ export default function MainForm(){
         }
       });
     } else {
-      // TODO: open modal with please sign in and the google button
-      // if the user is singing in, its need to know the mandates to send 
-      // or: it will go back to this page and it will need to send again
-      console.log('modal should open')
       setIsModalOpen(true);
     }
   }
@@ -64,7 +59,7 @@ export default function MainForm(){
         <TextField type="number" disabled id="standard-disabled" label="Total left" value={calculateTotal()}/>
         <Button variant="contained" color="primary" type="submit" disabled={calculateTotal() !== 0}>Send</Button>
         <AppModal open={isModalOpen} hanldeClose={() => setIsModalOpen(false)}>
-          <h1 className={classes.modalTitle}>Please login before sending your bet</h1>
+          <h1 className={classes.modalTitle}>Please login to place your bet</h1>
         </AppModal>
       </form>
   );
