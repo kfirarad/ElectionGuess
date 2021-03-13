@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { GoogleLogin, useGoogleLogin } from 'react-google-login';
 import { GoogleAuthContext } from '../../GoogleContext';
+import { db } from '../../firebase/firebase';
 
 function Login() {
   const { setUserId } = useContext(GoogleAuthContext);
@@ -9,8 +10,13 @@ function Login() {
   //     onSuccess: responseGoogle,        
   // }) // what is it for?
 
-  const responseGoogle = (response) => {
-    setUserId(response.googleId);
+  const responseGoogle = async (response) => {
+    const userId = response.googleId;
+    setUserId(userId);
+    db.collection('members').doc(userId).set({
+      name: response.profileObj.name,
+      mail: response.profileObj.email,
+    });
   }
 
   return (

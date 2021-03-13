@@ -3,12 +3,45 @@ export const parties = [
     name: 'Likud',
   },
   {
-    name: 'Meretz'
+    name: 'Yesh Atid',
   },
   {
-    name: 'Yamina'
+    name: 'Tikva Hadasha',
   },
   {
-    name: 'Join List'
-  }
+    name: 'Yamina',
+  },
+  {
+    name: 'Join List',
+  },
+  {
+    name: 'Shas',
+  },
+  {
+    name: 'Yahadut Hatora',
+  },
+  {
+    name: 'Israel Beitenu',
+  },
+  {
+    name: 'Haavoda',
+  },
+  {
+    name: 'Meretz',
+  },
+  {
+    name: 'Hazionut Hadatit (Nazim)',
+  },
+  {
+    name: 'Kahol Lavan',
+  },
+  {
+    name: 'Raam',
+  },
+  {
+    name: 'Hacalcalit',
+  },
+  {
+    name: 'Hapiratim',
+  },
 ];

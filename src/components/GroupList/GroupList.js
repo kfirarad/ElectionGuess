@@ -26,7 +26,8 @@ export default function GroupList(){
 
   return (
       <div>
-        {groups.map(group => <Group key={group.name} name={group.name} members={group.members}/>)}
+        {groups.map(group => <div key={group.name} name={group.name}>{group.name}</div>)}
+        {/* {groups.map(group => <Group key={group.name} name={group.name} members={group.members}/>)} */}
       </div>
   );
 }
