@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { GoogleAuthContext } from '../../GoogleContext';
 import { db } from '../../firebase/firebase';
+import configData from "../../config/config.json";
 
 function Login() {
   const { setUserId } = useContext(GoogleAuthContext);
@@ -17,7 +18,7 @@ function Login() {
 
   return (
     <GoogleLogin
-      clientId="42810455163-tpluvult9gfakcssaeq34qidf5t5th7b.apps.googleusercontent.com"
+      clientId={configData.google.clientId}
       buttonText="Login"
       onSuccess={responseGoogle}
       onFailure={responseGoogle}
