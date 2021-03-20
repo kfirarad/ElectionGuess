@@ -39,6 +39,9 @@ export const parties = [
     name: 'Raam',
   },
   {
+    name: 'Noam',
+  },
+  {
     name: 'Hacalcalit',
   },
   {

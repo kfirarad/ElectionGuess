@@ -14,6 +14,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#ffffff',
     padding: '100px',
   },
+  container: {
+    margin: 20,
+  },
+  button: {
+    marginTop: 20,
+  }
 }));
 
 export default function Group() {
@@ -26,16 +32,17 @@ export default function Group() {
   const [ isModalOpen, setIsModalOpen ] = useState(false);
   const [ modalTitle, setModalTitle ] = useState('Please login to join the group');
 
-  useEffect(async () => {
-    const group = await db.collection('groups').doc(id).get();
-    setGroup(group.data());
-  }, []);
+  useEffect(() => {
+    const getGroup = async () => {
+      const group = await db.collection('groups').doc(id).get();
+      setGroup(group.data());
+    }
+    getGroup();
+  }, [id]);
 
   useEffect(() => {
-    if (group) {
-      setIsUserInGroup(group.members.includes(userId));
-    }
-  }, [userId])
+    setIsUserInGroup(group && group.members && group.members.includes(userId));
+  }, [userId, group])
 
   const getLink = () => {
     setModalTitle('Link is copied to clipboard. Send the link to friends');
@@ -55,15 +62,13 @@ export default function Group() {
     }
   }
 
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-
   return group ? ( 
-    <div>
-      <h2>{group.name}</h2>
+    <div className={classes.container}>
+      <h2>Group Name: {group.name}</h2>
       <h3>Group memebrs:</h3>
       {group.members.map(member => <Member key={member} memberId={member} />)}
-      {isUserInGroup && <Button onClick={getLink}>Get link to invite friends to group</Button>}
-      {!isUserInGroup && <Button onClick={joinGroup}>Join Group</Button>}
+      {isUserInGroup && <Button variant="contained" color="primary" onClick={getLink} className={classes.button}>Get link to invite friends to group</Button>}
+      {!isUserInGroup && <Button variant="contained" color="primary" onClick={joinGroup} className={classes.button}>Join Group</Button>}
       <AppModal open={isModalOpen} hanldeClose={() => setIsModalOpen(false)}>
         <h1 className={classes.modalTitle}>{modalTitle}</h1>
       </AppModal>

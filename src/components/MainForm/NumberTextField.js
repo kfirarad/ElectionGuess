@@ -3,23 +3,22 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles((theme) => ({
-  // root: {
-  //   flexGrow: 1,
-  // },
-  // menuButton: {
-  //   marginRight: theme.spacing(2),
-  // },
-  // title: {
-  //   flexGrow: 1,
-  // },
+  field: {
+    width: '40%',
+    margin: 12
+  },
 }));
 
 export default function NumberTextField(props){
   const classes = useStyles();
-  const { name, handleChange } = props;
+  const { name, handleChange, value } = props;
 
   return (
     <TextField
+      variant="outlined"
+      className={classes.field}
+      value={value || ''}
+      placeholder="0"
       id="standard-number"
       label={name}
       type="number"
@@ -33,7 +32,6 @@ export default function NumberTextField(props){
         },
         name: name
       }}
-      fullWidth
       onChange={handleChange}
     />
   );

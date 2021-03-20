@@ -1,14 +1,10 @@
 import React, { useContext } from 'react';
-import { GoogleLogin, useGoogleLogin } from 'react-google-login';
+import { GoogleLogin } from 'react-google-login';
 import { GoogleAuthContext } from '../../GoogleContext';
 import { db } from '../../firebase/firebase';
 
 function Login() {
   const { setUserId } = useContext(GoogleAuthContext);
-  // const { signIn, loaded } = useGoogleLogin({
-  //     isSignedIn: true,
-  //     onSuccess: responseGoogle,        
-  // }) // what is it for?
 
   const responseGoogle = async (response) => {
     const userId = response.googleId;
