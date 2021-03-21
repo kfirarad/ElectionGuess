@@ -17,7 +17,7 @@ function Login() {
 
   return (
     <GoogleLogin
-      clientId="42810455163-tpluvult9gfakcssaeq34qidf5t5th7b.apps.googleusercontent.com"
+      clientId="264486690240-pnrodjvjbqifgo5qei695au6edd522re.apps.googleusercontent.com"
       buttonText="Login"
       onSuccess={responseGoogle}
       onFailure={responseGoogle}
