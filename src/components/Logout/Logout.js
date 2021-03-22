@@ -4,10 +4,6 @@ import { GoogleAuthContext } from '../../GoogleContext';
 
 function Logout() {
   const { setUserId } = useContext(GoogleAuthContext);
-  // const { signIn, loaded } = useGoogleLogin({
-  //     isSignedIn: true,
-  //     onSuccess: responseGoogle,        
-  // }) // what is it for?
 
   const logout = () => {
     setUserId(null);

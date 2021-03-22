@@ -11,7 +11,8 @@ import AppModal from '../Modal/Modal';
 const useStyles = makeStyles((theme) => ({
   modalTitle: {
     backgroundColor: '#ffffff',
-    padding: '100px',
+    padding: '80px 40px',
+    textAlign: 'center',
   },
   formContainer: {
     margin: 20,
