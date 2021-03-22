@@ -1,50 +1,47 @@
 export const parties = [
   {
-    name: 'Likud',
+    name: 'ליכוד',
   },
   {
-    name: 'Yesh Atid',
+    name: 'יש עתיד',
   },
   {
-    name: 'Tikva Hadasha',
+    name: 'תקווה חדשה',
   },
   {
-    name: 'Yamina',
+    name: 'ימינה',
   },
   {
-    name: 'Join List',
+    name: 'הרשימה המשותפת',
   },
   {
-    name: 'Shas',
+    name: 'שס',
   },
   {
-    name: 'Yahadut Hatora',
+    name: 'יהדות התורה',
   },
   {
-    name: 'Israel Beitenu',
+    name: 'ישראל ביתנו',
   },
   {
-    name: 'Haavoda',
+    name: 'העבודה',
   },
   {
-    name: 'Meretz',
+    name: 'מרצ',
   },
   {
-    name: 'Hazionut Hadatit (Nazim)',
+    name: 'הציונות הדתית',
   },
   {
-    name: 'Kahol Lavan',
+    name: 'כחול לבן',
   },
   {
-    name: 'Raam',
+    name: 'רעם',
   },
   {
-    name: 'Noam',
+    name: 'נעם',
   },
   {
-    name: 'Hacalcalit',
-  },
-  {
-    name: 'Hapiratim',
+    name: 'הכלכלית',
   },
 ];

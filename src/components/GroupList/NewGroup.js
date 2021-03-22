@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 50,
   },
   container: {
-    width: 400,
+    width: 300,
   },
   sendButton: {
     marginTop: 20,

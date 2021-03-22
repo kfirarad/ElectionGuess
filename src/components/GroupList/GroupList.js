@@ -16,10 +16,11 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   group: {
-    display: 'block',
-    width: 80,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     padding: 10,
-    textAlign: 'center',
+    width: 80,
     marginRight: 10,
     fontSize: 18,
     color: 'white',
@@ -28,9 +29,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#3f51b5'
   },
   otherGroup: {
-    display: 'block',
-    width: 80,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     padding: 10,
+    width: 80,
     textAlign: 'center',
     marginRight: 10,
     fontSize: 18,

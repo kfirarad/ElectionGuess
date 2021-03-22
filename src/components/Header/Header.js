@@ -13,12 +13,18 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
     },
+    toolBar: {
+        flexWrap: 'wrap',
+        padding: 15,
+    },
     menuButton: {
         marginRight: theme.spacing(2),
         textDecoration: 'none'
     },
     title: {
         flexGrow: 1,
+        minWidth: 300,
+        marginBottom: 10,
     },
 }));
 
@@ -29,7 +35,7 @@ export default function Header() {
     return (
         <div className={classes.root}>
             <AppBar position="static">
-                <Toolbar>
+                <Toolbar className={classes.toolBar}>
                     <Typography id="title" variant="h6" className={classes.title}>
                         Election Guess
                     </Typography>

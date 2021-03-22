@@ -5,7 +5,8 @@ import Modal from '@material-ui/core/Modal';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
-    padding: '100px',
+    width: '90%',
+    margin: '80px 20px 0 20px',
   },
 }));
 
